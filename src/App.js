@@ -47,19 +47,13 @@ export default function WeddingQuizApp() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-rose-50 via-amber-50 to-pink-50 text-center relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-pink-200/30 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-rose-100/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
-      
-      {/* Decorative hearts */}
-      <div className="absolute top-10 left-10 text-pink-300/40 text-4xl">💕</div>
-      <div className="absolute top-20 right-20 text-amber-300/40 text-3xl">✨</div>
-      <div className="absolute bottom-20 left-20 text-rose-300/40 text-3xl">💍</div>
-      <div className="absolute bottom-10 right-10 text-pink-300/40 text-4xl">💐</div>
 
       <AnimatePresence mode="wait">
         {step === "choose" && (
@@ -76,43 +70,48 @@ export default function WeddingQuizApp() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <h1 className="text-6xl md:text-7xl font-serif text-gray-800 tracking-tight mb-4 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 bg-clip-text text-transparent">
+              <h1 className="text-8xl md:text-9xl text-white tracking-tight mb-4" style={{ fontFamily: "'Great Vibes', cursive" }}>
                 Choose Your Side
               </h1>
-              <div className="flex items-center justify-center gap-2 text-3xl mb-2">
-                <span>💕</span>
-                <span className="text-4xl">✨</span>
-                <span>💕</span>
-              </div>
-              <p className="text-gray-600 font-light text-xl max-w-md mx-auto">
+              <p className="text-5xl md:text-5xl text-white tracking-tight mb-4" style={{ fontFamily: "'Great Vibes', cursive" }}>
                 Pick your team before the wedding quiz begins
               </p>
             </motion.div>
-            
-            <div className="flex flex-col md:flex-row gap-6 justify-center mt-12">
+
+            <div className="flex flex-col md:flex-row gap-8 justify-center mt-12 w-full max-w-6xl">
               <motion.button
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleChoice("groom")}
-                className="group relative px-12 py-6 bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all overflow-hidden"
+                className="group relative w-full md:w-96 h-96 bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-semibold rounded-3xl shadow-2xl hover:shadow-3xl transition-all overflow-hidden"
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL}/groom.jpg)`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
               >
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-600/50 to-transparent" />
                 <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                <div className="relative flex flex-col items-center gap-2">
-                  <span className="text-4xl">🤵</span>
-                  <span className="text-xl">Team Groom</span>
+                <div className="relative h-full flex flex-col items-center justify-end pb-8 gap-4">
+                  <span className="text-3xl font-bold drop-shadow-lg">Team Groom</span>
                 </div>
               </motion.button>
-              
+
               <motion.button
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleChoice("bride")}
-                className="group relative px-12 py-6 bg-gradient-to-br from-pink-500 to-rose-600 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all overflow-hidden"
+                className="group relative w-full md:w-96 h-96 bg-gradient-to-br from-pink-500 to-rose-600 text-white font-semibold rounded-3xl shadow-2xl hover:shadow-3xl transition-all overflow-hidden"
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL}/bride.jpg)`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
               >
+                <div className="absolute inset-0 bg-gradient-to-t from-pink-900/90 via-pink-600/50 to-transparent" />
                 <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                <div className="relative flex flex-col items-center gap-2">
-                  <span className="text-4xl">👰</span>
-                  <span className="text-xl">Team Bride</span>
+                <div className="relative h-full flex flex-col items-center justify-end pb-8 gap-4">
+                  <span className="text-3xl font-bold drop-shadow-lg">Team Bride</span>
                 </div>
               </motion.button>
             </div>
@@ -142,9 +141,8 @@ export default function WeddingQuizApp() {
                     initial={{ width: 0 }}
                     animate={{ width: `${((index + 1) / questions[side].length) * 100}%` }}
                     transition={{ duration: 0.5 }}
-                    className={`h-full rounded-full ${
-                      side === "bride" ? "bg-gradient-to-r from-pink-500 to-rose-500" : "bg-gradient-to-r from-blue-500 to-indigo-600"
-                    }`}
+                    className={`h-full rounded-full ${side === "bride" ? "bg-gradient-to-r from-pink-500 to-rose-500" : "bg-gradient-to-r from-blue-500 to-indigo-600"
+                      }`}
                   />
                 </div>
               </div>
@@ -158,7 +156,7 @@ export default function WeddingQuizApp() {
                 <h2 className="text-3xl md:text-4xl font-serif text-gray-800 mb-8 leading-tight">
                   {questions[side][index].q}
                 </h2>
-                
+
                 <div className="grid gap-4">
                   {questions[side][index].options.map((opt, i) => (
                     <motion.button
@@ -166,18 +164,16 @@ export default function WeddingQuizApp() {
                       whileHover={{ scale: 1.02, x: 5 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handleAnswer(i)}
-                      className={`relative border-2 rounded-2xl py-4 px-6 text-left font-medium transition-all group ${
-                        side === "bride"
+                      className={`relative border-2 rounded-2xl py-4 px-6 text-left font-medium transition-all group ${side === "bride"
                           ? "border-pink-200 hover:border-pink-400 hover:bg-pink-50 text-gray-700 hover:text-pink-700"
                           : "border-blue-200 hover:border-blue-400 hover:bg-blue-50 text-gray-700 hover:text-blue-700"
-                      }`}
+                        }`}
                     >
                       <span className="flex items-center gap-3">
-                        <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-semibold transition-all ${
-                          side === "bride"
+                        <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-semibold transition-all ${side === "bride"
                             ? "border-pink-300 group-hover:border-pink-500 group-hover:bg-pink-500 group-hover:text-white"
                             : "border-blue-300 group-hover:border-blue-500 group-hover:bg-blue-500 group-hover:text-white"
-                        }`}>
+                          }`}>
                           {String.fromCharCode(65 + i)}
                         </span>
                         <span className="text-lg">{opt}</span>
@@ -213,11 +209,11 @@ export default function WeddingQuizApp() {
               >
                 {score >= 7 ? "🎉" : "😅"}
               </motion.div>
-              
+
               <h1 className="text-5xl md:text-6xl font-serif text-gray-800 mb-6 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 bg-clip-text text-transparent">
                 {score >= 7 ? "Congratulations!" : "Nice Try!"}
               </h1>
-              
+
               <div className="mb-8">
                 <p className="text-2xl text-gray-600 mb-4">Your Score</p>
                 <div className="flex items-center justify-center gap-4">
@@ -225,9 +221,8 @@ export default function WeddingQuizApp() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.4, type: "spring" }}
-                    className={`text-6xl font-bold ${
-                      side === "bride" ? "text-pink-600" : "text-blue-600"
-                    }`}
+                    className={`text-6xl font-bold ${side === "bride" ? "text-pink-600" : "text-blue-600"
+                      }`}
                   >
                     {score}
                   </motion.span>
@@ -276,11 +271,10 @@ export default function WeddingQuizApp() {
                   setScore(0);
                   setIndex(0);
                 }}
-                className={`mt-8 px-12 py-4 rounded-2xl font-semibold text-white shadow-xl hover:shadow-2xl transition-all ${
-                  side === "bride"
+                className={`mt-8 px-12 py-4 rounded-2xl font-semibold text-white shadow-xl hover:shadow-2xl transition-all ${side === "bride"
                     ? "bg-gradient-to-r from-pink-500 to-rose-600"
                     : "bg-gradient-to-r from-blue-500 to-indigo-600"
-                }`}
+                  }`}
               >
                 Try Again
               </motion.button>
