@@ -3,15 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const questions = {
   groom: [
-    { q: "Where did the groom propose?", options: ["Paris", "At home", "On a helicopter", "At a concert"], a: 2 },
-    { q: "What's the groom's favorite drink?", options: ["Whiskey", "Beer", "Coffee", "Wine"], a: 0 },
-    { q: "Which city was the groom born in?", options: ["Rome", "London", "New York", "Tokyo"], a: 2 },
-    { q: "The groom's hidden talent?", options: ["Dancing", "Singing", "Cooking", "Drawing"], a: 2 },
-    { q: "His favorite movie genre?", options: ["Comedy", "Action", "Drama", "Sci-Fi"], a: 1 },
-    { q: "Favorite season?", options: ["Spring", "Summer", "Fall", "Winter"], a: 1 },
-    { q: "His go-to breakfast?", options: ["Omelet", "Pancakes", "Cereal", "Croissant"], a: 3 },
-    { q: "Favorite color?", options: ["Blue", "Green", "Black", "Gold"], a: 0 },
-    { q: "Favorite holiday spot?", options: ["Bali", "Paris", "New York", "Maldives"], a: 3 },
+    { q: "What is the circumference of his biceps in cm ?", options: ["36", "28", "40", "44"], a: 2 },
+    { q: "What's the groom's favorite drink?", options: ["Whiskey", "Beer", "Coffee", "Wine"], a: 2 },
+    { q: "Which city was the groom born in?", options: ["Vaslui", "Iasi", "Bucuresti", "Husi"], a: 3 },
+    { q: "What did he think at fiest about the bride?", options: ["Spoiled", "Beautifull", "Sexy", "Complicated"], a: 1 },
+    { q: "His favorite tv series?", options: ["Big Bang Theory", "The office", "Friends", "How i met your mother"], a: 1 },
+    { q: "Favorite shisha flavor?", options: ["Cane Mint", "Double Apple", "Lemon Lime", "Kashmir Guava"], a: 2 },
+    { q: "His go-to breakfast?", options: ["Eggs", "Pancakes", "Eggs", "Eggs"], a: 3 },
+    { q: "Favorite thing about the bride?", options: ["Ass", "Eyes", "Soul", "Moods"], a: 2 },
+    { q: "Favorite holiday together?", options: ["Bali", "Nice", "Bahamas", "London"], a: 3 },
     { q: "Who said 'I love you' first?", options: ["Bride", "Groom"], a: 1 },
   ],
   bride: [
