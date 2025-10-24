@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/corina-bogdan.github.io/static/css/main.16b3792b.css",
-    "main.js": "/corina-bogdan.github.io/static/js/main.173d8abb.js",
+    "main.css": "/corina-bogdan.github.io/static/css/main.874a81f3.css",
+    "main.js": "/corina-bogdan.github.io/static/js/main.ae962598.js",
     "static/js/453.7a086ca1.chunk.js": "/corina-bogdan.github.io/static/js/453.7a086ca1.chunk.js",
     "index.html": "/corina-bogdan.github.io/index.html",
-    "main.16b3792b.css.map": "/corina-bogdan.github.io/static/css/main.16b3792b.css.map",
-    "main.173d8abb.js.map": "/corina-bogdan.github.io/static/js/main.173d8abb.js.map",
+    "main.874a81f3.css.map": "/corina-bogdan.github.io/static/css/main.874a81f3.css.map",
+    "main.ae962598.js.map": "/corina-bogdan.github.io/static/js/main.ae962598.js.map",
     "453.7a086ca1.chunk.js.map": "/corina-bogdan.github.io/static/js/453.7a086ca1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.16b3792b.css",
-    "static/js/main.173d8abb.js"
+    "static/css/main.874a81f3.css",
+    "static/js/main.ae962598.js"
   ]
 }
