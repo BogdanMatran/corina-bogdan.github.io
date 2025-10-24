@@ -22,7 +22,7 @@ const questions = {
     { q: "What’s she most likely to be doing at 8 a.m. on a Sunday?", options: ["Making pancakes 🥞", "Scrolling TikTok 😆", "Going for a run (in theory) 🏃‍♀️", "Sleeping in 💤"], a: 3 },
     { q: "What’s the one thing she’d never share - not even with him?", options: ["Her fries 🍟", "Her blanket 🛏️", "Her skincare products 🧴 (Yes she does have a few of those)", "Her Netflix password 🎬"], a: 0 },
     { q: "What was her first impression of him?", options: ["“This guy talks a lot.” 😂", "“I bet he’ll text me first.” 💬", "“Nope, not tall enough 💃”", "“He’s actually kind of cute…” 😏"], a: 2 },
-    { q: "What’s the most likely phrase she’ll say on the wedding day?", options: ["“Where’s my lip gloss?!” 💄", "“Okay, but get a photo of this!” 📸", "Unde-ai disparut iar? 😭", "“Don’t cry, you’ll ruin your mascara.” 😭"], a: 2 },
+    { q: "What’s the most likely phrase she’ll say on the wedding day?", options: ["“Where’s my lip gloss?!” 💄", "“Okay, but get a photo of this!” 📸", "Unde-ai disparut iar? 😡", "“Don’t cry, you’ll ruin your mascara.” 😭"], a: 2 },
     { q: "Where did the proposal happen?", options: ["At home, surrounded by laundry and true love 🧺❤️", "At a restaurant that served emotions instead of dessert", "On the beach (but like, a normal beach, not Miami Beach)", "In a HELICOPTER flying over MIAMI BEACH — with the FULL MOON shining like it knew what was going on 🌕💍"], a: 4 },
     { q: "Who said 'I love you' first?", options: ["Bride", "Groom"], a: 0 },
 	  { q: "What should you do to get the wedding invite?", options: ["RSVP before the deadline (we’re watching 👀)", "Pretend to cry during the ceremony for bonus points 😭", "Compliment the bride’s dress loudly and repeatedly 👗", "Just show up, we already love you ❤️"], a: 3 },
@@ -34,6 +34,8 @@ export default function WeddingQuizApp() {
   const [side, setSide] = useState(null);
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [showResult, setShowResult] = useState(false);
 
   const handleChoice = (choice) => {
     setSide(choice);
@@ -41,10 +43,18 @@ export default function WeddingQuizApp() {
   };
 
   const handleAnswer = (i) => {
+    setSelectedAnswer(i);
+    setShowResult(true);
+    
     const correct = questions[side][index].a;
     if (i === correct) setScore(score + 1);
-    if (index + 1 < questions[side].length) setIndex(index + 1);
-    else setStep("result");
+    
+    setTimeout(() => {
+      setShowResult(false);
+      setSelectedAnswer(null);
+      if (index + 1 < questions[side].length) setIndex(index + 1);
+      else setStep("result");
+    }, 2000);
   };
 
   return (
@@ -159,28 +169,46 @@ export default function WeddingQuizApp() {
                 </h2>
 
                 <div className="grid gap-4">
-                  {questions[side][index].options.map((opt, i) => (
-                    <motion.button
-                      key={i}
-                      whileHover={{ scale: 1.02, x: 5 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => handleAnswer(i)}
-                      className={`relative border-2 rounded-2xl py-4 px-6 text-left font-medium transition-all group ${side === "bride"
-                          ? "border-pink-200 hover:border-pink-400 hover:bg-pink-50 text-gray-700 hover:text-pink-700"
-                          : "border-blue-200 hover:border-blue-400 hover:bg-blue-50 text-gray-700 hover:text-blue-700"
+                  {questions[side][index].options.map((opt, i) => {
+                    const isCorrect = i === questions[side][index].a;
+                    const isSelected = i === selectedAnswer;
+                    const shouldBlink = showResult && isCorrect;
+                    const shouldShowWrong = showResult && isSelected && !isCorrect;
+                    
+                    return (
+                      <motion.button
+                        key={i}
+                        whileHover={!showResult ? { scale: 1.02, x: 5 } : {}}
+                        whileTap={!showResult ? { scale: 0.98 } : {}}
+                        onClick={() => !showResult && handleAnswer(i)}
+                        disabled={showResult}
+                        className={`relative border-2 rounded-2xl py-4 px-6 text-left font-medium transition-all group ${
+                          shouldBlink
+                            ? "border-green-500 bg-green-100 animate-pulse"
+                            : shouldShowWrong
+                            ? "border-red-500 bg-red-100"
+                            : side === "bride"
+                            ? "border-pink-200 hover:border-pink-400 hover:bg-pink-50 text-gray-700 hover:text-pink-700"
+                            : "border-blue-200 hover:border-blue-400 hover:bg-blue-50 text-gray-700 hover:text-blue-700"
                         }`}
-                    >
-                      <span className="flex items-center gap-3">
-                        <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-semibold transition-all ${side === "bride"
-                            ? "border-pink-300 group-hover:border-pink-500 group-hover:bg-pink-500 group-hover:text-white"
-                            : "border-blue-300 group-hover:border-blue-500 group-hover:bg-blue-500 group-hover:text-white"
+                      >
+                        <span className="flex items-center gap-3">
+                          <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-semibold transition-all ${
+                            shouldBlink
+                              ? "border-green-500 bg-green-500 text-white"
+                              : shouldShowWrong
+                              ? "border-red-500 bg-red-500 text-white"
+                              : side === "bride"
+                              ? "border-pink-300 group-hover:border-pink-500 group-hover:bg-pink-500 group-hover:text-white"
+                              : "border-blue-300 group-hover:border-blue-500 group-hover:bg-blue-500 group-hover:text-white"
                           }`}>
-                          {String.fromCharCode(65 + i)}
+                            {shouldBlink ? "✓" : shouldShowWrong ? "✗" : String.fromCharCode(65 + i)}
+                          </span>
+                          <span className={`text-lg ${shouldBlink ? "text-green-700 font-semibold" : shouldShowWrong ? "text-red-700" : ""}`}>{opt}</span>
                         </span>
-                        <span className="text-lg">{opt}</span>
-                      </span>
-                    </motion.button>
-                  ))}
+                      </motion.button>
+                    );
+                  })}
                 </div>
               </motion.div>
             </div>
