@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const questions = {
   groom: [
-    { q: "Where did the groom propose?", options: ["Paris", "At home", "On the beach", "At a concert"], a: 2 },
+    { q: "Where did the groom propose?", options: ["Paris", "At home", "On a helicopter", "At a concert"], a: 2 },
     { q: "What's the groom's favorite drink?", options: ["Whiskey", "Beer", "Coffee", "Wine"], a: 0 },
     { q: "Which city was the groom born in?", options: ["Rome", "London", "New York", "Tokyo"], a: 2 },
     { q: "The groom's hidden talent?", options: ["Dancing", "Singing", "Cooking", "Drawing"], a: 2 },
@@ -15,16 +15,17 @@ const questions = {
     { q: "Who said 'I love you' first?", options: ["Bride", "Groom"], a: 1 },
   ],
   bride: [
-    { q: "What's the bride's favorite flower?", options: ["Rose", "Peony", "Lily", "Tulip"], a: 1 },
-    { q: "Where did she grow up?", options: ["Paris", "New York", "London", "Rome"], a: 2 },
-    { q: "Her favorite dessert?", options: ["Cake", "Macaron", "Ice Cream", "Tiramisu"], a: 1 },
-    { q: "What's her dream honeymoon spot?", options: ["Bali", "Venice", "Santorini", "Kyoto"], a: 2 },
-    { q: "Favorite color?", options: ["White", "Pink", "Gold", "Lavender"], a: 2 },
-    { q: "Her morning ritual?", options: ["Yoga", "Coffee", "Jogging", "Meditation"], a: 1 },
-    { q: "Favorite type of movie?", options: ["Rom-Com", "Thriller", "Drama", "Fantasy"], a: 0 },
-    { q: "The bride's zodiac sign?", options: ["Leo", "Cancer", "Taurus", "Virgo"], a: 3 },
-    { q: "Her favorite drink?", options: ["Tea", "Wine", "Smoothie", "Coffee"], a: 0 },
-    { q: "Who said 'I love you' first?", options: ["Bride", "Groom"], a: 0 },
+    { q: "How did they meet?", options: ["At a concert 🎶", "On Tinder 💬", "At university 📚", "In Zurich HB at 6AM in the morning!!"], a: 4 },
+    { q: "Where did she grow up?", options: ["Darmanesti", "Maratei", "Precista", "Husi"], a: 1 },
+    { q: "Her favorite dessert?", options: ["Cake", "Macaron", "Pasteis de Nata", "Lays cu branza"], a: 4 },
+    { q: "What was our first trip together?", options: ["Bali", "Cote d'Azur", "Miami", "Targul de Craciun din Bucuresti"], a: 4 },
+    { q: "What’s she most likely to be doing at 8 a.m. on a Sunday?", options: ["Making pancakes 🥞", "Scrolling TikTok 😆", "Going for a run (in theory) 🏃‍♀️", "Sleeping in 💤"], a: 4 },
+    { q: "What’s the one thing she’d never share - not even with him?", options: ["Her fries 🍟", "Her blanket 🛏️", "Her skincare products 🧴 (Yes she does have a few of those)", "Her Netflix password 🎬"], a: 1 },
+    { q: "What was her first impression of him?", options: ["“This guy talks a lot.” 😂", "“I bet he’ll text me first.” 💬", "“Nope, not tall enough 💃”", "“He’s actually kind of cute…” 😏"], a: 3 },
+    { q: "What’s the most likely phrase she’ll say on the wedding day?", options: ["“Where’s my lip gloss?!” 💄", "“Okay, but get a photo of this!” 📸", "Unde-ai disparut iar? 😭", "“Don’t cry, you’ll ruin your mascara.” 😭"], a: 3 },
+    { q: "Where did the proposal happen?", options: ["At home, surrounded by laundry and true love 🧺❤️", "At a restaurant that served emotions instead of dessert", "On the beach (but like, a normal beach, not Miami Beach)", "In a HELICOPTER flying over MIAMI BEACH — with the FULL MOON shining like it knew what was going on 🌕💍"], a: 4 },
+    { q: "Who said 'I love you' first?", options: ["Bride", "Groom"], a: 1 },
+	  { q: "What should you do to get the wedding invite?", options: ["RSVP before the deadline (we’re watching 👀)", "Pretend to cry during the ceremony for bonus points 😭", "Compliment the bride’s dress loudly and repeatedly 👗", "Just show up, we already love you ❤️"], a: 4 },
   ],
 };
 
