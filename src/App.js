@@ -23,7 +23,7 @@ const questions = {
     { q: "What’s the one thing she’d never share - not even with him?", options: ["Her fries 🍟", "Her blanket 🛏️", "Her skincare products 🧴 (Yes she does have a few of those)", "Her Netflix password 🎬"], a: 0 },
     { q: "What was her first impression of him?", options: ["“This guy talks a lot.” 😂", "“I bet he’ll text me first.” 💬", "“Nope, not tall enough 💃”", "“He’s actually kind of cute…” 😏"], a: 2 },
     { q: "What’s the most likely phrase she’ll say on the wedding day?", options: ["“Where’s my lip gloss?!” 💄", "“Okay, but get a photo of this!” 📸", "Unde-ai disparut iar? 😡", "“Don’t cry, you’ll ruin your mascara.” 😭"], a: 2 },
-    { q: "Where did the proposal happen?", options: ["At home, surrounded by laundry and true love 🧺❤️", "At a restaurant that served emotions instead of dessert", "On the beach (but like, a normal beach, not Miami Beach)", "In a HELICOPTER flying over MIAMI BEACH — with the FULL MOON shining like it knew what was going on 🌕💍"], a: 4 },
+    { q: "Where did the proposal happen?", options: ["At home, surrounded by laundry and true love 🧺❤️", "At a restaurant that served emotions instead of dessert", "On the beach (but like, a normal beach, not Miami Beach)", "In a HELICOPTER flying over MIAMI BEACH — with the FULL MOON shining like it knew what was going on 🌕💍"], a: 3 },
     { q: "Who said 'I love you' first?", options: ["Bride", "Groom"], a: 0 },
 	  { q: "What should you do to get the wedding invite?", options: ["RSVP before the deadline (we’re watching 👀)", "Pretend to cry during the ceremony for bonus points 😭", "Compliment the bride’s dress loudly and repeatedly 👗", "Just show up, we already love you ❤️"], a: 3 },
   ],
