@@ -1,0 +1,31 @@
+{
+    "chooseTitle": "Alege-ți tabăra",
+    "chooseSubtitle": "Alege echipa înainte să înceapă quizul de nuntă",
+    "teamGroom": "Echipa Mirelui",
+    "teamBride": "Echipa Miresei",
+    "progress": "Progres",
+    "congratulations": "Felicitări!",
+    "niceTry": "Bună încercare!",
+    "yourScore": "Scorul tău",
+    "earnedInvite": "Ai câștigat invitația de aur!",
+    "seeYou": "Ne vedem la petrecere!",
+    "almostThere": "Aproape! Mai încearcă o dată pentru a obține invitația.",
+    "tryAgain": "Încearcă din nou",
+    "toggleLanguage": "Schimbă limba",
+  
+    "questions": {
+      "groom": [
+        { "q": "Care este circumferința bicepsului său în cm?", "options": ["36", "28", "40", "44"] },
+        { "q": "Care este băutura preferată a mirelui?", "options": ["Whiskey", "Bere", "Cafea", "Vin"] },
+        { "q": "În ce oraș s-a născut mirele?", "options": ["Vaslui", "Iași", "București", "Huși"] },
+        { "q": "Ce a gândit prima dată despre mireasă?", "options": ["Răsfățată", "Frumoasă", "Sexy", "Complicată"] },
+        { "q": "Serialul lui preferat?", "options": ["Big Bang Theory", "The Office", "Friends", "Cum am cunoscut-o pe mama ta"] }
+      ],
+      "bride": [
+        { "q": "Cum s-au cunoscut?", "options": ["La un concert 🎶", "Pe Tinder 💬", "La universitate 📚", "În Zurich HB la 6 dimineața!"] },
+        { "q": "Unde a copilărit?", "options": ["Dărmănești", "Mărăței", "Precista", "Huși"] },
+        { "q": "Desertul ei preferat?", "options": ["Tort", "Macaron", "Pasteis de Nata", "Lays cu brânză"] }
+      ]
+    }
+}
+  

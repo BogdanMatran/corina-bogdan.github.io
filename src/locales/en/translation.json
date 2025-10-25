@@ -1,0 +1,31 @@
+{
+    "chooseTitle": "Choose Your Side",
+    "chooseSubtitle": "Pick your team before the wedding quiz begins",
+    "teamGroom": "Team Groom",
+    "teamBride": "Team Bride",
+    "progress": "Progress",
+    "congratulations": "Congratulations!",
+    "niceTry": "Nice Try!",
+    "yourScore": "Your Score",
+    "earnedInvite": "You've earned your golden invite!",
+    "seeYou": "See you at the celebration!",
+    "almostThere": "Almost there! Give it another shot to secure your invitation.",
+    "tryAgain": "Try Again",
+    "toggleLanguage": "Switch Language",
+  
+    "questions": {
+      "groom": [
+        { "q": "What is the circumference of his biceps in cm?", "options": ["36", "28", "40", "44"] },
+        { "q": "What's the groom's favorite drink?", "options": ["Whiskey", "Beer", "Coffee", "Wine"] },
+        { "q": "Which city was the groom born in?", "options": ["Vaslui", "Iasi", "Bucharest", "Husi"] },
+        { "q": "What did he think at first about the bride?", "options": ["Spoiled", "Beautiful", "Sexy", "Complicated"] },
+        { "q": "His favorite TV series?", "options": ["Big Bang Theory", "The Office", "Friends", "How I Met Your Mother"] }
+      ],
+      "bride": [
+        { "q": "How did they meet?", "options": ["At a concert 🎶", "On Tinder 💬", "At university 📚", "In Zurich HB at 6AM!"] },
+        { "q": "Where did she grow up?", "options": ["Darmanesti", "Maratei", "Precista", "Husi"] },
+        { "q": "Her favorite dessert?", "options": ["Cake", "Macaron", "Pasteis de Nata", "Lays with cheese"] }
+      ]
+    }
+}
+  

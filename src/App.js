@@ -36,6 +36,14 @@ export default function WeddingQuizApp() {
   const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    attending: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const handleChoice = (choice) => {
     setSide(choice);
@@ -55,6 +63,42 @@ export default function WeddingQuizApp() {
       if (index + 1 < questions[side].length) setIndex(index + 1);
       else setStep("result");
     }, 2000);
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Replace with your Google Apps Script Web App URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQxKwC8DidECaO-M7g_11wkujo-I-2QD_S2dn0rlqCYLKHn7IH5K8siK0MR8hjax7gZA/exec";
+
+    try {
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          attending: formData.attending,
+          team: side,
+          score: score,
+          timestamp: new Date().toISOString()
+        }),
+      });
+
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+      }, 1000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setIsSubmitting(false);
+      alert("There was an error submitting your response. Please try again.");
+    }
   };
 
   return (
@@ -230,83 +274,234 @@ export default function WeddingQuizApp() {
               transition={{ delay: 0.2 }}
               className="bg-white/80 backdrop-blur-xl border-2 border-white/50 rounded-3xl shadow-2xl p-12 max-w-2xl"
             >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-                className="text-7xl mb-6"
-              >
-                {score >= 7 ? "🎉" : "😅"}
-              </motion.div>
-
-              <h1 className="text-5xl md:text-6xl font-serif text-gray-800 mb-6 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 bg-clip-text text-transparent">
-                {score >= 7 ? "Congratulations!" : "Nice Try!"}
-              </h1>
-
-              <div className="mb-8">
-                <p className="text-2xl text-gray-600 mb-4">Your Score</p>
-                <div className="flex items-center justify-center gap-4">
-                  <motion.span
+              {!submitSuccess ? (
+                <>
+                  <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ delay: 0.4, type: "spring" }}
-                    className={`text-6xl font-bold ${side === "bride" ? "text-pink-600" : "text-blue-600"
-                      }`}
+                    transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+                    className="text-7xl mb-6"
                   >
-                    {score}
-                  </motion.span>
-                  <span className="text-4xl text-gray-400">/</span>
-                  <span className="text-4xl text-gray-600">{questions[side].length}</span>
-                </div>
-              </div>
+                    {score >= 7 ? "🎉" : "😅"}
+                  </motion.div>
 
-              {score >= 7 ? (
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  className="space-y-4"
-                >
-                  <div className="flex items-center justify-center gap-2 text-4xl mb-4">
-                    <span>💍</span>
-                    <span>✨</span>
-                    <span>💐</span>
+                  <h1 className="text-5xl md:text-6xl font-serif text-gray-800 mb-6 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 bg-clip-text text-transparent">
+                    {score >= 7 ? "Congratulations!" : "Nice Try!"}
+                  </h1>
+
+                  <div className="mb-8">
+                    <p className="text-2xl text-gray-600 mb-4">Your Score</p>
+                    <div className="flex items-center justify-center gap-4">
+                      <motion.span
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.4, type: "spring" }}
+                        className={`text-6xl font-bold ${side === "bride" ? "text-pink-600" : "text-blue-600"
+                          }`}
+                      >
+                        {score}
+                      </motion.span>
+                      <span className="text-4xl text-gray-400">/</span>
+                      <span className="text-4xl text-gray-600">{questions[side].length}</span>
+                    </div>
                   </div>
-                  <p className="text-2xl font-medium bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">
-                    You've earned your golden invite!
-                  </p>
-                  <p className="text-gray-600 text-lg">
-                    See you at the celebration!
-                  </p>
-                </motion.div>
+
+                  {score >= 7 ? (
+                    <motion.div
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.6 }}
+                      className="space-y-4 mb-8"
+                    >
+                      <div className="flex items-center justify-center gap-2 text-4xl mb-4">
+                        <span>💍</span>
+                        <span>✨</span>
+                        <span>💐</span>
+                      </div>
+                      <p className="text-2xl font-medium bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">
+                        You've earned your golden invite!
+                      </p>
+                      <p className="text-gray-600 text-lg mb-6">
+                        Please fill out the form below to confirm your attendance
+                      </p>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.6 }}
+                      className="space-y-4 mb-8"
+                    >
+                      <p className="text-xl text-gray-600 mb-6">
+                        Almost there! But let's get your details anyway...
+                      </p>
+                    </motion.div>
+                  )}
+
+                  {/* RSVP Form */}
+                  <motion.form
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.8 }}
+                    onSubmit={handleFormSubmit}
+                    className="space-y-6 text-left"
+                  >
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-pink-400 focus:outline-none transition-colors"
+                        placeholder="Enter your name"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-pink-400 focus:outline-none transition-colors"
+                        placeholder="your.email@example.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-pink-400 focus:outline-none transition-colors"
+                        placeholder="+1 234 567 8900"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Will you be attending? *
+                      </label>
+                      <div className="flex gap-4">
+                        <label className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-xl border-2 cursor-pointer transition-all ${
+                          formData.attending === "yes"
+                            ? "border-green-500 bg-green-50"
+                            : "border-gray-200 hover:border-green-300"
+                        }`}>
+                          <input
+                            type="radio"
+                            name="attending"
+                            value="yes"
+                            required
+                            checked={formData.attending === "yes"}
+                            onChange={(e) => setFormData({ ...formData, attending: e.target.value })}
+                            className="w-5 h-5 text-green-500"
+                          />
+                          <span className="font-semibold text-gray-700">Yes! 🎉</span>
+                        </label>
+                        <label className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-xl border-2 cursor-pointer transition-all ${
+                          formData.attending === "no"
+                            ? "border-red-500 bg-red-50"
+                            : "border-gray-200 hover:border-red-300"
+                        }`}>
+                          <input
+                            type="radio"
+                            name="attending"
+                            value="no"
+                            required
+                            checked={formData.attending === "no"}
+                            onChange={(e) => setFormData({ ...formData, attending: e.target.value })}
+                            className="w-5 h-5 text-red-500"
+                          />
+                          <span className="font-semibold text-gray-700">Can't make it 😢</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={`w-full px-12 py-4 rounded-2xl font-semibold text-white shadow-xl hover:shadow-2xl transition-all ${
+                        side === "bride"
+                          ? "bg-gradient-to-r from-pink-500 to-rose-600"
+                          : "bg-gradient-to-r from-blue-500 to-indigo-600"
+                      } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                    >
+                      {isSubmitting ? "Submitting..." : "Submit RSVP"}
+                    </motion.button>
+                  </motion.form>
+
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setStep("choose");
+                      setScore(0);
+                      setIndex(0);
+                      setFormData({ name: "", email: "", phone: "", attending: "" });
+                    }}
+                    className="mt-6 px-8 py-3 rounded-xl font-medium text-gray-600 border-2 border-gray-300 hover:border-gray-400 transition-all"
+                  >
+                    Retake Quiz
+                  </motion.button>
+                </>
               ) : (
                 <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  className="space-y-4"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center space-y-6"
                 >
-                  <p className="text-xl text-gray-600">
-                    Almost there! Give it another shot to secure your invitation.
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="text-8xl mb-6"
+                  >
+                    ✅
+                  </motion.div>
+                  <h2 className="text-4xl font-serif text-gray-800 mb-4">
+                    Thank You!
+                  </h2>
+                  <p className="text-xl text-gray-600 mb-8">
+                    Your response has been recorded. We can't wait to celebrate with you!
                   </p>
+                  <div className="flex items-center justify-center gap-3 text-5xl">
+                    <span>💒</span>
+                    <span>💕</span>
+                    <span>🥂</span>
+                  </div>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setStep("choose");
+                      setScore(0);
+                      setIndex(0);
+                      setFormData({ name: "", email: "", phone: "", attending: "" });
+                      setSubmitSuccess(false);
+                    }}
+                    className={`mt-8 px-12 py-4 rounded-2xl font-semibold text-white shadow-xl hover:shadow-2xl transition-all ${
+                      side === "bride"
+                        ? "bg-gradient-to-r from-pink-500 to-rose-600"
+                        : "bg-gradient-to-r from-blue-500 to-indigo-600"
+                    }`}
+                  >
+                    Start Over
+                  </motion.button>
                 </motion.div>
               )}
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  setStep("choose");
-                  setScore(0);
-                  setIndex(0);
-                }}
-                className={`mt-8 px-12 py-4 rounded-2xl font-semibold text-white shadow-xl hover:shadow-2xl transition-all ${side === "bride"
-                    ? "bg-gradient-to-r from-pink-500 to-rose-600"
-                    : "bg-gradient-to-r from-blue-500 to-indigo-600"
-                  }`}
-              >
-                Try Again
-              </motion.button>
             </motion.div>
           </motion.div>
         )}
