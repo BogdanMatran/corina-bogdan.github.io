@@ -40,10 +40,12 @@ export default function WeddingQuizApp() {
     name: "",
     email: "",
     phone: "",
-    attending: ""
+    attending: "",
+    essay: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [wordCount, setWordCount] = useState(0);
 
   const handleChoice = (choice) => {
     setSide(choice);
@@ -67,10 +69,17 @@ export default function WeddingQuizApp() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate essay if attending is "no"
+    if (formData.attending === "no" && wordCount < 300) {
+      alert(`Your essay must be at least 300 words. Current word count: ${wordCount}`);
+      return;
+    }
+    
     setIsSubmitting(true);
 
     // Replace with your Google Apps Script Web App URL
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQxKwC8DidECaO-M7g_11wkujo-I-2QD_S2dn0rlqCYLKHn7IH5K8siK0MR8hjax7gZA/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbygnuDB2N30apAVXHYMtuhC4nSlPNbEFeFKVFy1p4LUR-8pqwtRO5_Ep3hVCjJVqOs/exec";
 
     try {
       const response = await fetch(SCRIPT_URL, {
@@ -84,6 +93,7 @@ export default function WeddingQuizApp() {
           email: formData.email,
           phone: formData.phone,
           attending: formData.attending,
+          essay: formData.essay || "N/A",
           team: side,
           score: score,
           timestamp: new Date().toISOString()
@@ -99,6 +109,13 @@ export default function WeddingQuizApp() {
       setIsSubmitting(false);
       alert("There was an error submitting your response. Please try again.");
     }
+  };
+
+  const handleEssayChange = (e) => {
+    const text = e.target.value;
+    const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+    setWordCount(words.length);
+    setFormData({ ...formData, essay: text });
   };
 
   return (
@@ -404,7 +421,10 @@ export default function WeddingQuizApp() {
                             value="yes"
                             required
                             checked={formData.attending === "yes"}
-                            onChange={(e) => setFormData({ ...formData, attending: e.target.value })}
+                            onChange={(e) => {
+                              setFormData({ ...formData, attending: e.target.value, essay: "" });
+                              setWordCount(0);
+                            }}
                             className="w-5 h-5 text-green-500"
                           />
                           <span className="font-semibold text-gray-700">Yes! 🎉</span>
@@ -427,6 +447,36 @@ export default function WeddingQuizApp() {
                         </label>
                       </div>
                     </div>
+
+                    {/* Essay field for "No" responses */}
+                    {formData.attending === "no" && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          Please write a 300-word essay explaining why you can't attend *
+                        </label>
+                        <textarea
+                          required={formData.attending === "no"}
+                          value={formData.essay}
+                          onChange={handleEssayChange}
+                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-red-400 focus:outline-none transition-colors min-h-[200px] resize-y"
+                          placeholder="We're disappointed you can't make it! You are now obligated to explain in at least 300 words why you'll be missing Corina's special day..."
+                        />
+                        <div className="flex justify-between items-center mt-2">
+                          <span className={`text-sm font-medium ${wordCount >= 300 ? "text-green-600" : "text-red-600"}`}>
+                            Word count: {wordCount} / 300 {wordCount >= 300 ? "✓" : ""}
+                          </span>
+                          {wordCount < 300 && (
+                            <span className="text-xs text-gray-500">
+                              {300 - wordCount} more words needed
+                            </span>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
 
                     <motion.button
                       whileHover={{ scale: 1.02 }}
