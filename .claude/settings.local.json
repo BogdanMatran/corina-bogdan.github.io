@@ -1,0 +1,10 @@
+{
+  "enabledMcpjsonServers": [
+    "everything"
+  ],
+  "permissions": {
+    "allow": [
+      "mcp__atlassian-mcp__jira_update_issue"
+    ]
+  }
+}

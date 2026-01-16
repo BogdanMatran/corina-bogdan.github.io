@@ -2,6 +2,150 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-white text-gray-800;
+:root {
+  --scrollbar-track: #064e3b;
+  --scrollbar-thumb: #f59e0b;
+  --scrollbar-thumb-hover: #d97706;
+  --selection-bg: #f59e0b;
+  --selection-text: #064e3b;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-emerald-950 text-white;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar styling - Dynamic theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  transition: background 0.5s ease;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+  transition: background 0.5s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+/* Star twinkle animation - Optimized for performance */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.star-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+/* Glassmorphism utilities */
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Elevated shadow system */
+.shadow-elevated {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 16px 24px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-floating {
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.08),
+    0 16px 32px rgba(0, 0, 0, 0.12),
+    0 24px 48px rgba(0, 0, 0, 0.16);
+}
+
+/* Enhanced typography system - Unified across all sections */
+.text-hero {
+  font-size: clamp(3.5rem, 12vw, 10rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-optical-sizing: auto;
+}
+
+.text-section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.text-section-label {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.text-body-large {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.text-body {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Custom cursor styling - Desktop only */
+/* Note: Custom cursor is optional and can be enabled by uncommenting below */
+/* The cursor trail provides the main visual effect */
+/*
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: url('./cursor-ring.svg') 12 12, auto;
+  }
+
+  a, button, [role="button"] {
+    cursor: url('./cursor-ring.svg') 12 12, pointer;
+  }
+}
+*/
