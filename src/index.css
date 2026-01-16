@@ -15,7 +15,6 @@ html {
 }
 
 body {
-  @apply bg-emerald-950 text-white;
   margin: 0;
   padding: 0;
   overflow-x: hidden;

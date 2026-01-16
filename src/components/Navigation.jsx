@@ -95,14 +95,11 @@ const Navigation = ({ weddingDate = '2026-06-16' }) => {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      animate={{
-        backgroundColor: scrolled ? colors.bg : 'transparent',
-        borderBottomColor: scrolled ? colors.border : 'transparent',
-      }}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white shadow-sm"
       style={{
         borderBottomWidth: '1px',
         borderBottomStyle: 'solid',
+        borderBottomColor: 'rgba(0,0,0,0.1)',
       }}
     >
       <div className="max-w-5xl mx-auto px-6 py-4">
@@ -111,8 +108,7 @@ const Navigation = ({ weddingDate = '2026-06-16' }) => {
           <motion.a
             href="#hero"
             onClick={(e) => scrollToSection(e, '#hero')}
-            className="text-xl md:text-2xl transition-colors duration-500"
-            animate={{ color: scrolled ? colors.text : 'white' }}
+            className="text-xl md:text-2xl transition-colors duration-500 text-black"
             whileHover={{ color: colors.accent }}
             style={{ fontFamily: "'Great Vibes', cursive" }}
           >
@@ -126,8 +122,7 @@ const Navigation = ({ weddingDate = '2026-06-16' }) => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-xs tracking-[0.2em] uppercase font-bold transition-colors duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-sm px-2 py-1"
-                animate={{ color: scrolled ? `${colors.text}cc` : 'rgba(255,255,255,0.8)' }}
+                className="text-xs tracking-[0.2em] uppercase font-bold transition-colors duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-sm px-2 py-1 text-gray-700"
                 whileHover={{ color: colors.accent }}
                 style={{ '--tw-ring-color': colors.accent }}
               >
@@ -258,8 +253,7 @@ const Navigation = ({ weddingDate = '2026-06-16' }) => {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 transition-colors duration-500"
-            animate={{ color: scrolled ? colors.text : 'white' }}
+            className="md:hidden p-2 transition-colors duration-500 text-black"
             whileHover={{ color: colors.accent }}
             aria-label="Toggle menu"
           >
@@ -279,8 +273,11 @@ const Navigation = ({ weddingDate = '2026-06-16' }) => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden mt-4 pb-4 border-t"
-            style={{ borderTopColor: colors.border }}
+            className="md:hidden mt-4 pb-4 border-t rounded-b-lg backdrop-blur-md"
+            style={{
+              borderTopColor: colors.border,
+              backgroundColor: `${colors.bg}f0`
+            }}
           >
             <div className="flex flex-col space-y-3 pt-4">
               {navLinks.map((link) => (

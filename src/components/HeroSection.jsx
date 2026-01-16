@@ -22,7 +22,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="mb-12"
+          className="mt-16 mb-12"
         >
           <span className="text-amber-400 text-xs md:text-sm tracking-[0.5em] uppercase font-bold">
             THE WEDDING OF
@@ -100,7 +100,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.6 }}
-          className="absolute bottom-12"
+          className="mt-12"
         >
           <motion.button
             onClick={() => document.getElementById('story')?.scrollIntoView({ behavior: 'smooth' })}

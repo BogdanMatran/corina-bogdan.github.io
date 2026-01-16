@@ -271,7 +271,7 @@ const InteractiveSection = () => {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-green-100 border border-green-300 rounded-lg p-3 text-center text-green-800 font-semibold"
+                    className="bg-lime-100 border border-lime-300 rounded-lg p-3 text-center text-lime-800 font-semibold"
                   >
                     Song request submitted! Thank you!
                   </motion.div>
@@ -298,7 +298,7 @@ const InteractiveSection = () => {
 
             {predictionSubmitted && results ? (
               <div className="space-y-4">
-                <p className="text-green-700 font-semibold text-center bg-green-100 rounded-lg p-3">
+                <p className="text-yellow-700 font-semibold text-center bg-yellow-100 rounded-lg p-3">
                   Thanks for voting! Here are the results so far:
                 </p>
                 {/* Results display would go here */}
