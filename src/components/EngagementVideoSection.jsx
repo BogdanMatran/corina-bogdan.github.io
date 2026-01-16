@@ -50,14 +50,8 @@ const EngagementVideoSection = () => {
   return (
     <ScrollSection
       id="engagement-video"
-      className="bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-50 relative overflow-hidden"
+      className="bg-transparent"
     >
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-yellow-300 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-amber-300 rounded-full blur-3xl" />
-      </div>
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -76,7 +70,7 @@ const EngagementVideoSection = () => {
         {/* Title */}
         <motion.h2
           variants={itemVariants}
-          className="text-section-title text-amber-900"
+          className="text-section-title text-white"
         >
           {videoData.title || "The Proposal"}
         </motion.h2>
@@ -116,23 +110,9 @@ const EngagementVideoSection = () => {
             </div>
           ) : (
             // Placeholder
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-200 via-yellow-200 to-amber-300">
-              {/* Animated background */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, 0]
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute inset-0 bg-gradient-to-br from-yellow-300/50 via-amber-300/50 to-yellow-400/50 blur-2xl"
-              />
-
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white">
               {/* Content */}
-              <div className="relative z-10 flex flex-col items-center justify-center h-full p-8 bg-gradient-to-br from-white/20 to-transparent backdrop-blur-sm">
+              <div className="relative z-10 flex flex-col items-center justify-center h-full p-8">
                 {/* Play icon placeholder */}
                 <motion.div
                   animate={{
@@ -146,8 +126,8 @@ const EngagementVideoSection = () => {
                   }}
                   className="mb-8"
                 >
-                  <div className="w-24 h-24 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center border-4 border-white/50 shadow-xl">
-                    <svg className="w-12 h-12 text-amber-900 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center border-4 border-amber-400 shadow-xl">
+                    <svg className="w-12 h-12 text-amber-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
@@ -155,13 +135,13 @@ const EngagementVideoSection = () => {
 
                 {/* Text */}
                 <h3
-                  className="text-3xl md:text-4xl font-bold text-amber-900 mb-4"
+                  className="text-3xl md:text-4xl font-bold text-slate-900 mb-4"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   {videoData.placeholder?.message || "Our engagement video is coming soon!"}
                 </h3>
 
-                <p className="text-lg text-amber-800 opacity-80">
+                <p className="text-lg text-slate-700">
                   Stay tuned for the magical moment
                 </p>
               </div>

@@ -25,8 +25,7 @@ const GroomSection = () => {
   };
 
   return (
-    <ScrollSection id="groom" className="bg-white relative overflow-hidden">
-
+    <ScrollSection id="groom" className="bg-transparent">
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center relative z-10">
         {/* Content */}
         <motion.div
@@ -39,13 +38,13 @@ const GroomSection = () => {
           <div>
             <motion.p
               variants={itemVariants}
-              className="text-slate-600 text-section-label mb-2"
+              className="text-amber-600 text-section-label mb-2"
             >
               {storyContent.groom.subtitle}
             </motion.p>
             <motion.h2
               variants={itemVariants}
-              className="text-section-title text-slate-900"
+              className="text-section-title text-white"
             >
               {storyContent.groom.title}
             </motion.h2>
@@ -58,12 +57,10 @@ const GroomSection = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-start gap-4 bg-white/95 backdrop-blur-sm p-4 border-l-4 border-teal-400 hover:bg-white hover:shadow-md transition-all cursor-default"
+                className="flex items-start gap-4"
               >
-                <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0" />
-                <p className={`text-teal-900 leading-relaxed ${index === 0 ? 'text-lg font-semibold' : 'font-medium'}`}>
+                <span className="w-3 h-3 bg-amber-500 rounded-full mt-1.5 flex-shrink-0" />
+                <p className={`text-white leading-relaxed ${index === 0 ? 'text-xl font-bold' : 'text-lg font-medium'}`}>
                   {fact}
                 </p>
               </motion.div>

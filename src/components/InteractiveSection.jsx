@@ -161,14 +161,8 @@ const InteractiveSection = () => {
   return (
     <ScrollSection
       id="interactive"
-      className="bg-gradient-to-b from-lime-50 via-yellow-50 to-lime-50 relative overflow-hidden"
+      className="bg-transparent"
     >
-      {/* Decorative background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-lime-300 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-yellow-300 rounded-full blur-3xl" />
-      </div>
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -179,7 +173,7 @@ const InteractiveSection = () => {
         {/* Section Label */}
         <motion.span
           variants={itemVariants}
-          className="inline-block text-lime-700 text-section-label"
+          className="inline-block text-amber-700 text-section-label"
         >
           Get Involved
         </motion.span>
@@ -187,7 +181,7 @@ const InteractiveSection = () => {
         {/* Title */}
         <motion.h2
           variants={itemVariants}
-          className="text-section-title text-lime-900"
+          className="text-section-title text-white"
         >
           Make It Your Party Too!
         </motion.h2>
@@ -198,10 +192,10 @@ const InteractiveSection = () => {
           {/* Song Requests */}
           <motion.div
             variants={itemVariants}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-lime-100 text-left"
+            className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-amber-100 text-left"
           >
             <h3
-              className="text-3xl md:text-4xl font-bold text-lime-800 mb-4"
+              className="text-3xl md:text-4xl font-bold text-amber-800 mb-4"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Request a Song
@@ -212,8 +206,8 @@ const InteractiveSection = () => {
             </p>
 
             {songCount >= maxSongs ? (
-              <div className="bg-lime-100 border border-lime-300 rounded-lg p-4 text-center">
-                <p className="text-lime-800 font-semibold">
+              <div className="bg-amber-100 border border-amber-300 rounded-lg p-4 text-center">
+                <p className="text-amber-800 font-semibold">
                   Thank you! You've requested {maxSongs} songs.
                 </p>
               </div>
@@ -228,7 +222,7 @@ const InteractiveSection = () => {
                     required
                     value={songForm.song}
                     onChange={(e) => setSongForm({ ...songForm, song: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-lime-500 focus:ring-2 focus:ring-lime-200 outline-none transition text-slate-900"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition text-slate-900"
                     placeholder="Enter song title"
                   />
                 </div>
@@ -242,7 +236,7 @@ const InteractiveSection = () => {
                     required
                     value={songForm.artist}
                     onChange={(e) => setSongForm({ ...songForm, artist: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-lime-500 focus:ring-2 focus:ring-lime-200 outline-none transition text-slate-900"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition text-slate-900"
                     placeholder="Enter artist name"
                   />
                 </div>
@@ -254,7 +248,7 @@ const InteractiveSection = () => {
                   <textarea
                     value={songForm.reason}
                     onChange={(e) => setSongForm({ ...songForm, reason: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-lime-500 focus:ring-2 focus:ring-lime-200 outline-none transition resize-none text-slate-900"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition resize-none text-slate-900"
                     rows="3"
                     placeholder="Share why this song is special"
                   />
@@ -262,7 +256,7 @@ const InteractiveSection = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-lime-500 to-lime-600 hover:from-lime-600 hover:to-lime-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
                 >
                   Submit Song Request ({songCount}/{maxSongs})
                 </button>
@@ -271,7 +265,7 @@ const InteractiveSection = () => {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-lime-100 border border-lime-300 rounded-lg p-3 text-center text-lime-800 font-semibold"
+                    className="bg-amber-100 border border-amber-300 rounded-lg p-3 text-center text-amber-800 font-semibold"
                   >
                     Song request submitted! Thank you!
                   </motion.div>

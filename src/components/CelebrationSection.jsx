@@ -24,8 +24,7 @@ const CelebrationSection = () => {
   };
 
   return (
-    <ScrollSection id="celebration" className="relative overflow-hidden" style={{ backgroundColor: '#f59e0b' }}>
-
+    <ScrollSection id="celebration" className="bg-transparent">
       <motion.div
         variants={containerVariants}
         initial="hidden"

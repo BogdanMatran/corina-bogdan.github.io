@@ -25,8 +25,7 @@ const BrideSection = () => {
   };
 
   return (
-    <ScrollSection id="bride" className="bg-white relative overflow-hidden">
-
+    <ScrollSection id="bride" className="bg-transparent">
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center relative z-10">
         {/* Enhanced Image with Multi-layer Frame */}
         <motion.div
@@ -57,13 +56,13 @@ const BrideSection = () => {
           <div>
             <motion.p
               variants={itemVariants}
-              className="text-slate-600 text-section-label mb-2"
+              className="text-amber-600 text-section-label mb-2"
             >
               {storyContent.bride.subtitle}
             </motion.p>
             <motion.h2
               variants={itemVariants}
-              className="text-section-title text-slate-900"
+              className="text-section-title text-white"
             >
               {storyContent.bride.title}
             </motion.h2>
@@ -76,12 +75,10 @@ const BrideSection = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-start gap-4 bg-slate-50 p-4 border-l-4 border-slate-400 hover:bg-slate-100 hover:shadow-md transition-all cursor-default"
+                className="flex items-start gap-4"
               >
-                <span className="w-2 h-2 bg-slate-600 rounded-full mt-2 flex-shrink-0" />
-                <p className={`text-slate-700 leading-relaxed ${index === 0 ? 'text-lg font-semibold' : 'font-medium'}`}>
+                <span className="w-3 h-3 bg-amber-500 rounded-full mt-1.5 flex-shrink-0" />
+                <p className={`text-white leading-relaxed ${index === 0 ? 'text-xl font-bold' : 'text-lg font-medium'}`}>
                   {fact}
                 </p>
               </motion.div>

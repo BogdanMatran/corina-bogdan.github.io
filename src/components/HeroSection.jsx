@@ -4,12 +4,12 @@ import { storyContent } from '../data/storyContent';
 
 const HeroSection = () => {
   return (
-    <ScrollSection id="hero" className="relative overflow-hidden">
-      {/* Background Image */}
+    <ScrollSection id="hero" className="relative">
+      {/* Hero Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/hero-bg.jpg)`,
+          backgroundImage: 'url(/hero-bg.jpg)',
         }}
       />
 

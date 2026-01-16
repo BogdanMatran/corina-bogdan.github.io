@@ -24,19 +24,18 @@ const StorySection = () => {
   };
 
   return (
-    <ScrollSection id="story" className="bg-white relative overflow-hidden">
-
+    <ScrollSection id="story" className="bg-transparent">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto px-6 text-center space-y-8"
+        className="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10"
       >
         {/* Section Label */}
         <motion.span
           variants={itemVariants}
-          className="inline-block text-slate-600 text-section-label"
+          className="inline-block text-amber-600 text-section-label"
         >
           Our Story
         </motion.span>
@@ -44,7 +43,7 @@ const StorySection = () => {
         {/* Title */}
         <motion.h2
           variants={itemVariants}
-          className="text-section-title text-slate-900"
+          className="text-section-title text-white"
         >
           {storyContent.beginning.title}
         </motion.h2>
@@ -56,7 +55,7 @@ const StorySection = () => {
             <motion.p
               key={index}
               variants={itemVariants}
-              className="text-body-large text-slate-700"
+              className="text-body-large text-white"
             >
               {line}
             </motion.p>

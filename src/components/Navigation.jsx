@@ -132,123 +132,95 @@ const Navigation = ({ weddingDate = '2026-06-16' }) => {
           </div>
 
           {/* Enhanced Countdown Timer */}
-          <motion.div
-            className="hidden md:flex items-center px-4 py-2 gap-1 rounded-sm relative overflow-hidden shadow-lg"
-            animate={{
-              background: `linear-gradient(135deg, ${colors.accent} 0%, ${colors.thumbHover} 100%)`,
-            }}
-            style={{
-              boxShadow: `0 4px 16px ${colors.accent}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
-            }}
+          <div
+            className="hidden md:flex items-center px-4 py-2 gap-1 rounded-sm relative overflow-hidden shadow-2xl bg-amber-500"
           >
             {/* Inner glow effect */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
             <div className="flex flex-col items-center px-2 relative z-10">
-              <motion.span
-                className="font-bold text-lg leading-none"
-                animate={{ color: colors.bg }}
-                transition={{ duration: 0.5 }}
+              <span
+                className="font-bold text-lg leading-none text-slate-900"
                 style={{
                   textShadow: '0 1px 2px rgba(0,0,0,0.2)',
                   fontVariantNumeric: 'tabular-nums'
                 }}
               >
                 {countdown.days}
-              </motion.span>
-              <motion.span
-                className="text-[10px] uppercase tracking-wider font-semibold"
-                animate={{ color: colors.bg }}
-                transition={{ duration: 0.5 }}
+              </span>
+              <span
+                className="text-[10px] uppercase tracking-wider font-semibold text-slate-900"
                 style={{ opacity: 0.9 }}
               >
                 days
-              </motion.span>
+              </span>
             </div>
-            <motion.span
-              className="font-bold relative z-10"
-              animate={{ color: colors.bg }}
-              transition={{ duration: 0.5 }}
+            <span
+              className="font-bold relative z-10 text-slate-900"
             >
               :
-            </motion.span>
+            </span>
             <div className="flex flex-col items-center px-2 relative z-10">
-              <motion.span
-                className="font-bold text-lg leading-none"
-                animate={{ color: colors.bg }}
-                transition={{ duration: 0.5 }}
+              <span
+                className="font-bold text-lg leading-none text-slate-900"
                 style={{
                   textShadow: '0 1px 2px rgba(0,0,0,0.2)',
                   fontVariantNumeric: 'tabular-nums'
                 }}
               >
                 {pad(countdown.hours)}
-              </motion.span>
-              <motion.span
-                className="text-[10px] uppercase tracking-wider font-semibold"
-                animate={{ color: colors.bg }}
-                transition={{ duration: 0.5 }}
+              </span>
+              <span
+                className="text-[10px] uppercase tracking-wider font-semibold text-slate-900"
                 style={{ opacity: 0.9 }}
               >
                 hrs
-              </motion.span>
+              </span>
             </div>
-            <motion.span
-              className="font-bold relative z-10"
-              animate={{ color: colors.bg }}
-              transition={{ duration: 0.5 }}
+            <span
+              className="font-bold relative z-10 text-slate-900"
             >
               :
-            </motion.span>
+            </span>
             <div className="flex flex-col items-center px-2 relative z-10">
-              <motion.span
-                className="font-bold text-lg leading-none"
-                animate={{ color: colors.bg }}
-                transition={{ duration: 0.5 }}
+              <span
+                className="font-bold text-lg leading-none text-slate-900"
                 style={{
                   textShadow: '0 1px 2px rgba(0,0,0,0.2)',
                   fontVariantNumeric: 'tabular-nums'
                 }}
               >
                 {pad(countdown.minutes)}
-              </motion.span>
-              <motion.span
-                className="text-[10px] uppercase tracking-wider font-semibold"
-                animate={{ color: colors.bg }}
-                transition={{ duration: 0.5 }}
+              </span>
+              <span
+                className="text-[10px] uppercase tracking-wider font-semibold text-slate-900"
                 style={{ opacity: 0.9 }}
               >
                 min
-              </motion.span>
+              </span>
             </div>
-            <motion.span
-              className="font-bold relative z-10"
-              animate={{ color: colors.bg }}
-              transition={{ duration: 0.5 }}
+            <span
+              className="font-bold relative z-10 text-slate-900"
             >
               :
-            </motion.span>
+            </span>
             <div className="flex flex-col items-center px-2 relative z-10">
-              <motion.span
-                className="font-bold text-lg leading-none"
-                animate={{ color: colors.bg }}
-                transition={{ duration: 0.5 }}
+              <span
+                className="font-bold text-lg leading-none text-slate-900"
                 style={{
                   textShadow: '0 1px 2px rgba(0,0,0,0.2)',
                   fontVariantNumeric: 'tabular-nums'
                 }}
               >
                 {pad(countdown.seconds)}
-              </motion.span>
-              <motion.span
-                className="text-[10px] uppercase tracking-wider font-semibold"
-                animate={{ color: colors.bg }}
-                transition={{ duration: 0.5 }}
+              </span>
+              <span
+                className="text-[10px] uppercase tracking-wider font-semibold text-slate-900"
                 style={{ opacity: 0.9 }}
               >
                 sec
-              </motion.span>
+              </span>
             </div>
-          </motion.div>
+          </div>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -293,27 +265,26 @@ const Navigation = ({ weddingDate = '2026-06-16' }) => {
               ))}
               {/* Mobile Countdown */}
               <div
-                className="flex items-center px-3 py-2 gap-1 w-fit mt-2"
-                style={{ backgroundColor: colors.accent }}
+                className="flex items-center px-3 py-2 gap-1 w-fit mt-2 bg-amber-500 shadow-lg"
               >
                 <div className="flex flex-col items-center px-1.5">
-                  <span className="font-bold text-sm leading-none" style={{ color: colors.bg }}>{countdown.days}</span>
-                  <span className="text-[8px] uppercase" style={{ color: colors.bg }}>days</span>
+                  <span className="font-bold text-sm leading-none text-slate-900">{countdown.days}</span>
+                  <span className="text-[8px] uppercase text-slate-900">days</span>
                 </div>
-                <span className="font-bold text-sm" style={{ color: colors.bg }}>:</span>
+                <span className="font-bold text-sm text-slate-900">:</span>
                 <div className="flex flex-col items-center px-1.5">
-                  <span className="font-bold text-sm leading-none" style={{ color: colors.bg }}>{pad(countdown.hours)}</span>
-                  <span className="text-[8px] uppercase" style={{ color: colors.bg }}>hrs</span>
+                  <span className="font-bold text-sm leading-none text-slate-900">{pad(countdown.hours)}</span>
+                  <span className="text-[8px] uppercase text-slate-900">hrs</span>
                 </div>
-                <span className="font-bold text-sm" style={{ color: colors.bg }}>:</span>
+                <span className="font-bold text-sm text-slate-900">:</span>
                 <div className="flex flex-col items-center px-1.5">
-                  <span className="font-bold text-sm leading-none" style={{ color: colors.bg }}>{pad(countdown.minutes)}</span>
-                  <span className="text-[8px] uppercase" style={{ color: colors.bg }}>min</span>
+                  <span className="font-bold text-sm leading-none text-slate-900">{pad(countdown.minutes)}</span>
+                  <span className="text-[8px] uppercase text-slate-900">min</span>
                 </div>
-                <span className="font-bold text-sm" style={{ color: colors.bg }}>:</span>
+                <span className="font-bold text-sm text-slate-900">:</span>
                 <div className="flex flex-col items-center px-1.5">
-                  <span className="font-bold text-sm leading-none" style={{ color: colors.bg }}>{pad(countdown.seconds)}</span>
-                  <span className="text-[8px] uppercase" style={{ color: colors.bg }}>sec</span>
+                  <span className="font-bold text-sm leading-none text-slate-900">{pad(countdown.seconds)}</span>
+                  <span className="text-[8px] uppercase text-slate-900">sec</span>
                 </div>
               </div>
             </div>

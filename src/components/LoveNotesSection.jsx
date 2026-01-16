@@ -26,14 +26,8 @@ const LoveNotesSection = () => {
   return (
     <ScrollSection
       id="love-notes"
-      className="bg-gradient-to-b from-pink-50 via-rose-50 to-pink-50 relative overflow-hidden"
+      className="bg-transparent"
     >
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-rose-200 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-200 rounded-full blur-3xl" />
-      </div>
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -44,7 +38,7 @@ const LoveNotesSection = () => {
         {/* Section Label */}
         <motion.span
           variants={cardVariants}
-          className="inline-block text-rose-600 text-section-label"
+          className="inline-block text-amber-600 text-section-label"
         >
           Love Notes
         </motion.span>
@@ -52,7 +46,7 @@ const LoveNotesSection = () => {
         {/* Title */}
         <motion.h2
           variants={cardVariants}
-          className="text-section-title text-rose-900"
+          className="text-section-title text-white"
         >
           Words from the Heart
         </motion.h2>
@@ -64,13 +58,13 @@ const LoveNotesSection = () => {
           <motion.div
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-rose-100"
+            className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-amber-100"
           >
             <div className="space-y-6">
               {/* Header */}
-              <div className="text-center pb-4 border-b border-rose-200">
+              <div className="text-center pb-4 border-b border-amber-200">
                 <h3
-                  className="text-2xl md:text-3xl text-rose-700"
+                  className="text-2xl md:text-3xl text-amber-700"
                   style={{ fontFamily: "'Dancing Script', cursive" }}
                 >
                   {storyContent.loveNotes?.corina?.to || 'To my Bogdan'}
@@ -89,7 +83,7 @@ const LoveNotesSection = () => {
               {/* Signature */}
               <div className="text-right pt-4">
                 <p
-                  className="text-2xl text-rose-600"
+                  className="text-2xl text-amber-600"
                   style={{ fontFamily: "'Dancing Script', cursive" }}
                 >
                   - Corina
@@ -102,13 +96,13 @@ const LoveNotesSection = () => {
           <motion.div
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-rose-100"
+            className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-amber-100"
           >
             <div className="space-y-6">
               {/* Header */}
-              <div className="text-center pb-4 border-b border-rose-200">
+              <div className="text-center pb-4 border-b border-amber-200">
                 <h3
-                  className="text-2xl md:text-3xl text-rose-700"
+                  className="text-2xl md:text-3xl text-amber-700"
                   style={{ fontFamily: "'Dancing Script', cursive" }}
                 >
                   {storyContent.loveNotes?.bogdan?.to || 'To my Corina'}
@@ -127,7 +121,7 @@ const LoveNotesSection = () => {
               {/* Signature */}
               <div className="text-right pt-4">
                 <p
-                  className="text-2xl text-rose-600"
+                  className="text-2xl text-amber-600"
                   style={{ fontFamily: "'Dancing Script', cursive" }}
                 >
                   - Bogdan
@@ -142,7 +136,7 @@ const LoveNotesSection = () => {
           variants={cardVariants}
           className="pt-8"
         >
-          <div className="w-16 h-1 bg-rose-300 mx-auto" />
+          <div className="w-16 h-1 bg-amber-300 mx-auto" />
         </motion.div>
       </motion.div>
     </ScrollSection>

@@ -12,7 +12,7 @@ const ScrollSection = ({ children, className = '', id = '' }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`min-h-screen flex items-center justify-center relative ${className}`}
+      className={`min-h-screen flex items-center justify-center relative bg-transparent ${className}`}
     >
       {children}
     </motion.section>

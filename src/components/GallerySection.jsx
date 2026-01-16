@@ -52,8 +52,7 @@ const GallerySection = () => {
   // Placeholder state when no gallery images
   if (gallery.length === 0) {
     return (
-      <ScrollSection id="gallery" className="relative overflow-hidden" style={{ backgroundColor: '#84cc16' }}>
-
+      <ScrollSection id="gallery" className="bg-transparent">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,17 +60,17 @@ const GallerySection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto px-6 py-16 text-center relative z-10"
         >
-          <span className="inline-block text-violet-600 text-section-label mb-4">
+          <span className="inline-block text-amber-900 text-section-label mb-4">
             Gallery
           </span>
-          <h2 className="text-section-title text-purple-900 mb-4">
+          <h2 className="text-section-title text-white mb-4">
             Our Moments
           </h2>
 
 
-          <p className="text-lime-900 mb-6 text-xl font-light leading-relaxed max-w-lg mx-auto">
+          <p className="text-white mb-6 text-xl font-light leading-relaxed max-w-lg mx-auto">
             Our photographer is still editing the photos.<br />
-            <span className="text-lime-950 italic text-2xl mt-2 inline-block" style={{ fontFamily: "'Great Vibes', cursive" }}>
+            <span className="text-white italic text-2xl mt-2 inline-block" style={{ fontFamily: "'Great Vibes', cursive" }}>
               Spoiler: We look amazing
             </span>
           </p>
@@ -81,7 +80,7 @@ const GallerySection = () => {
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div
                 key={i}
-                className="aspect-square bg-white/90 border-2 border-lime-700 relative overflow-hidden"
+                className="aspect-square bg-white/90 border-2 border-amber-700 relative overflow-hidden"
               >
               </div>
             ))}
@@ -92,8 +91,7 @@ const GallerySection = () => {
   }
 
   return (
-    <ScrollSection id="gallery" className="relative overflow-hidden" style={{ backgroundColor: '#84cc16' }}>
-
+    <ScrollSection id="gallery" className="bg-transparent">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -103,13 +101,13 @@ const GallerySection = () => {
       >
         <motion.span
           variants={itemVariants}
-          className="block text-center text-lime-900 text-section-label mb-4"
+          className="block text-center text-amber-900 text-section-label mb-4"
         >
           Gallery
         </motion.span>
         <motion.h2
           variants={itemVariants}
-          className="text-section-title text-lime-950 mb-4 text-center"
+          className="text-section-title text-white mb-4 text-center"
         >
           Our Moments
         </motion.h2>
@@ -124,7 +122,7 @@ const GallerySection = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="relative aspect-square overflow-hidden cursor-pointer group border-4 border-lime-700 hover:border-lime-800 transition-colors shadow-md"
+              className="relative aspect-square overflow-hidden cursor-pointer group border-4 border-amber-700 hover:border-amber-800 transition-colors shadow-md"
               onClick={() => setSelectedImage(image)}
             >
               <img
@@ -230,7 +228,7 @@ const GallerySection = () => {
               </svg>
             </button>
 
-            <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-violet-300 text-xs px-4 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/10">
+            <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-amber-300 text-xs px-4 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/10">
               Arrow keys or click arrows to navigate • ESC to close
             </p>
           </motion.div>

@@ -70,13 +70,7 @@ const JourneySection = () => {
   ];
 
   return (
-    <ScrollSection id="journey" className="relative overflow-hidden bg-gradient-to-b from-emerald-50 via-teal-50 to-cyan-50">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-emerald-300 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-teal-300 rounded-full blur-3xl" />
-      </div>
-
+    <ScrollSection id="journey" className="bg-transparent">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -87,7 +81,7 @@ const JourneySection = () => {
         {/* Section Label */}
         <motion.span
           variants={locationVariants}
-          className="inline-block text-emerald-700 text-section-label"
+          className="inline-block text-amber-700 text-section-label"
         >
           Our Journey
         </motion.span>
@@ -95,7 +89,7 @@ const JourneySection = () => {
         {/* Title */}
         <motion.h2
           variants={locationVariants}
-          className="text-section-title text-emerald-900"
+          className="text-section-title text-white"
         >
           From Zurich to Forever
         </motion.h2>
@@ -156,13 +150,13 @@ const JourneySection = () => {
                       )}
 
                       {/* Location Number Badge */}
-                      <div className="absolute top-2 right-2 w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
+                      <div className="absolute top-2 right-2 w-8 h-8 bg-amber-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
                         {index + 1}
                       </div>
                     </motion.div>
 
                     {/* Location Pin */}
-                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-emerald-600 rounded-full border-4 border-white shadow-lg z-10" />
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-amber-600 rounded-full border-4 border-white shadow-lg z-10" />
 
                     {/* Info Card - appears on hover */}
                     <motion.div
@@ -170,10 +164,10 @@ const JourneySection = () => {
                       whileHover={{ opacity: 1, y: 0 }}
                       className="absolute top-full mt-6 left-1/2 -translate-x-1/2 w-48 bg-white rounded-xl shadow-xl p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20"
                     >
-                      <h3 className="font-bold text-emerald-900 text-sm mb-1">
+                      <h3 className="font-bold text-amber-900 text-sm mb-1">
                         {location.place}
                       </h3>
-                      <p className="text-emerald-700 text-xs font-semibold mb-2">
+                      <p className="text-amber-700 text-xs font-semibold mb-2">
                         {location.label}
                       </p>
                       <p className="text-slate-600 text-xs">
@@ -189,7 +183,7 @@ const JourneySection = () => {
           {/* Mobile/Tablet Layout - Vertical Path */}
           <div className="lg:hidden relative">
             {/* Vertical Dotted Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-1 border-l-4 border-dashed border-emerald-400" />
+            <div className="absolute left-8 top-0 bottom-0 w-1 border-l-4 border-dashed border-amber-400" />
 
             {/* Locations */}
             <div className="space-y-8 pl-20">
@@ -200,7 +194,7 @@ const JourneySection = () => {
                   className="relative"
                 >
                   {/* Location Pin on line */}
-                  <div className="absolute -left-[52px] top-8 w-6 h-6 bg-emerald-600 rounded-full border-4 border-white shadow-lg z-10" />
+                  <div className="absolute -left-[52px] top-8 w-6 h-6 bg-amber-600 rounded-full border-4 border-white shadow-lg z-10" />
 
                   {/* Location Card */}
                   <div className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-shadow">
@@ -219,17 +213,17 @@ const JourneySection = () => {
                           </div>
                         )}
                         {/* Number Badge */}
-                        <div className="absolute top-1 right-1 w-6 h-6 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                        <div className="absolute top-1 right-1 w-6 h-6 bg-amber-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
                           {index + 1}
                         </div>
                       </div>
 
                       {/* Info */}
                       <div className="flex-1 text-left">
-                        <h3 className="font-bold text-emerald-900 text-lg mb-1">
+                        <h3 className="font-bold text-amber-900 text-lg mb-1">
                           {location.place}
                         </h3>
-                        <p className="text-emerald-700 text-sm font-semibold mb-1">
+                        <p className="text-amber-700 text-sm font-semibold mb-1">
                           {location.label}
                         </p>
                         <p className="text-slate-600 text-sm">
@@ -247,7 +241,7 @@ const JourneySection = () => {
         {/* Bottom Text */}
         <motion.p
           variants={locationVariants}
-          className="text-lg md:text-xl text-emerald-800 italic max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-white italic max-w-2xl mx-auto"
         >
           Seven places, countless memories, one beautiful journey to forever
         </motion.p>

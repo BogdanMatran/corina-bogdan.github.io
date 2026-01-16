@@ -35,7 +35,17 @@ export default function App() {
       {/* Cursor Trail Effect */}
       <CursorTrail />
 
-      <div className="relative bg-stone-50">
+      {/* Fixed Villa Background */}
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/villa.png)`,
+          backgroundAttachment: 'fixed',
+          zIndex: -10
+        }}
+      />
+
+      <div className="relative">
         {/* Navigation */}
         <Navigation weddingDate={storyContent.weddingDate} />
 

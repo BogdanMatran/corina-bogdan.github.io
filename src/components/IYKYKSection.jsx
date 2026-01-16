@@ -55,14 +55,8 @@ const IYKYKSection = () => {
   return (
     <ScrollSection
       id="iykyk"
-      className="bg-gradient-to-b from-purple-50 via-violet-50 to-purple-50 relative overflow-hidden"
+      className="bg-transparent"
     >
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 right-20 w-72 h-72 bg-purple-300 rounded-full blur-3xl" />
-        <div className="absolute bottom-32 left-20 w-96 h-96 bg-violet-300 rounded-full blur-3xl" />
-      </div>
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -73,7 +67,7 @@ const IYKYKSection = () => {
         {/* Section Label */}
         <motion.span
           variants={cardVariants}
-          className="inline-block text-purple-600 text-section-label"
+          className="inline-block text-amber-600 text-section-label"
         >
           Inside Jokes
         </motion.span>
@@ -81,7 +75,7 @@ const IYKYKSection = () => {
         {/* Title */}
         <motion.h2
           variants={cardVariants}
-          className="text-section-title text-purple-900"
+          className="text-section-title text-white"
         >
           If You Know, You Know
         </motion.h2>
@@ -90,7 +84,7 @@ const IYKYKSection = () => {
         {/* Subtitle */}
         <motion.p
           variants={cardVariants}
-          className="text-lg md:text-xl text-purple-700 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-amber-700 max-w-2xl mx-auto"
         >
           Moments that make us smile. References only the inner circle understands.
         </motion.p>
@@ -109,18 +103,18 @@ const IYKYKSection = () => {
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
-              className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-purple-100 cursor-default"
+              className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-amber-100 cursor-default"
             >
               {/* Title */}
               <h3
-                className="text-xl md:text-2xl font-bold text-purple-800 mb-3 pt-2"
+                className="text-xl md:text-2xl font-bold text-amber-800 mb-3 pt-2"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 {item.title}
               </h3>
 
               {/* Divider */}
-              <div className="w-12 h-1 bg-gradient-to-r from-purple-400 to-violet-400 mx-auto mb-3 group-hover:w-full transition-all duration-300" />
+              <div className="w-12 h-1 bg-gradient-to-r from-amber-400 to-amber-400 mx-auto mb-3 group-hover:w-full transition-all duration-300" />
 
               {/* Text */}
               <p className="text-sm md:text-base text-slate-600 leading-relaxed">
@@ -128,7 +122,7 @@ const IYKYKSection = () => {
               </p>
 
               {/* Corner decoration */}
-              <div className="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-purple-200 group-hover:border-purple-400 transition-colors duration-300" />
+              <div className="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-amber-200 group-hover:border-amber-400 transition-colors duration-300" />
             </motion.div>
           ))}
         </motion.div>
@@ -139,7 +133,7 @@ const IYKYKSection = () => {
           className="pt-8"
         >
           <p
-            className="text-xl md:text-2xl text-purple-600 opacity-70 italic"
+            className="text-xl md:text-2xl text-amber-600 opacity-70 italic"
           >
             You had to be there
           </p>
